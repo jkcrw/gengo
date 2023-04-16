@@ -13,7 +13,7 @@ from common_va import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-INPUT_FILE = r'C:\~\langs\zh\temp__1tingli read.txt'
+INPUT_FILE = r'temp.txt'
 SOURCE = 'tingli'  # 'spoonfed', 'tingli', or 'subs'
 CHARSET = 's'  # t = traditional, s = simplified
 
@@ -24,10 +24,10 @@ with open(INPUT_FILE, 'r', encoding='utf-8') as f:
 with open('seen_lemmas_zh.json', 'r', encoding='utf-8') as f:
     lemmas_seen = json.load(f)
 
-with open(r'C:\~\langs\zh\CEDICT\cedict_ts.json', 'r', encoding='utf-8') as f:
+with open(r'C:\~\lang\zh\CEDICT\cedict_ts.json', 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
-jieba.load_userdict(rf'C:\~\langs\zh\CEDICT\cedict_{CHARSET}_jieba.txt')
+jieba.load_userdict(rf'C:\~\lang\zh\CEDICT\cedict_{CHARSET}_jieba.txt')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Filter

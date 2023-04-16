@@ -14,7 +14,7 @@ from common_va import is_cjk_ideograph
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 TITLE = 'Tingli Sentences 1'
-INPUT_FILE = r'C:\~\langs\_langs\vocab_analyzer\temp_new.txt'
+INPUT_FILE = r'C:\~\lang\_rosita\vocab_analyzer\temp_new.txt'
 CONTENT_TYPE = 'sentences'
 CHARSET = 's'  # t = traditional, s = simplified
 
@@ -49,14 +49,14 @@ print(f'new_chars: {len(new_chars)}')
 # │ Lemma-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
 # Load up necessary files
-filename = r'C:\~\langs\zh\CEDICT\cedict_ts.json'
+filename = r'C:\~\lang\zh\CEDICT\cedict_ts.json'
 with open(filename, 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
 with open('seen_lemmas_zh.json', 'r', encoding='utf-8') as f:
     seen_lemmas = Counter(json.load(f))
 
-filename = rf'C:\~\langs\zh\CEDICT\cedict_{CHARSET}_jieba.txt'
+filename = rf'C:\~\lang\zh\CEDICT\cedict_{CHARSET}_jieba.txt'
 jieba.load_userdict(filename)
 
 # Total lemmas
