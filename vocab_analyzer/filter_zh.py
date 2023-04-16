@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 """Filter everything known out of a piece of Chinese content"""
 
-from collections import Counter
-from datetime import datetime
 import json
 import re
 
 import jieba
-
-from common_va import is_cjk_ideograph
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
