@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Monster'
-INPUT_FILE = rf'C:\~\Languages\JA\_fulltexts\Monster.txt'
-CONTENT_TYPE = '74 eps'
+TITLE = 'World Trigger'
+INPUT_FILE = rf'C:\~\lang\ja\_fulltexts\World Trigger.txt'
+CONTENT_TYPE = '99 eps'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis

@@ -10,7 +10,7 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Initialization
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Monster\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\lang\ja\subs2srs\World Trigger\target_words.txt'
 MAX_DURATION_MS = 11000
 MAX_DEADTIME_MS = 7500
 

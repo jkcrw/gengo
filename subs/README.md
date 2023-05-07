@@ -10,6 +10,7 @@
 9. `postprocess_subs2srs_tsv_ja.py` to post-process Anki TSV.
 10. Import into Anki.
 
+
 ### ES SUBS2SRS Procedure (2022/06/07)
 1. Identify movies of interest on Language Reactor.
 2. Download MP4s and SRTs using Anystream (or Netflix Subtitle Downloader/Flixgrab as backup).
