@@ -10,7 +10,7 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Initialization
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\lang\ja\subs2srs\World Trigger\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\lang\ja\subs2srs\Gintama\target_words.txt'
 MAX_DURATION_MS = 11000
 MAX_DEADTIME_MS = 7500
 
@@ -24,26 +24,37 @@ os.makedirs(root_filtered, exist_ok=True)
 # └─────────────────────────────────────────────────────────────────────────────
 def build_context(srt: pysrt.SubRipFile, i_init: int, i_main: int) -> pysrt.SubRipItem:
     """Bidirectionally expand context around entry sub up to reasonable duration."""
-    duration_ok = lambda buffer: (buffer[-1].end.ordinal - buffer[0].start.ordinal) <= MAX_DURATION_MS
-
     buffer = deque([srt[i_init]])
     direction, stride, i_cand = 1, 0, 0
     while True:
+        # Update direction, stride, and indices.
         if direction > 0: stride += 1
         direction *= -1
         i_cand = i_init + stride * direction
 
+        # Determine if candidate index is contiguous with buffer. If not, end immediately.
+        i_cand_srt_index = i_cand + 1
+        is_contiguous = (i_cand_srt_index == buffer[0].index - 1) or (i_cand_srt_index == buffer[-1].index + 1)
+        if not is_contiguous: break
+
+        # Determine if candidate index is valid. If not, allow algo to try other direction.
         is_in_bounds = 0 <= i_cand < len(srt)
         if not is_in_bounds: continue
 
+        # Index appears to be OK, so grab candidate and see if it should be added to the buffer.
         sub_cand = srt[i_cand]
-        lo, hi = (sub_cand, buffer[0]) if direction < 0 else (buffer[-1], sub_cand)
-        deadtime = hi.start.ordinal - lo.end.ordinal
-        if deadtime >= MAX_DEADTIME_MS: continue
 
-        temp_buffer = [buffer[0], sub_cand]
-        if not duration_ok(temp_buffer): break
+        # Determine whether deadtime excessive. If so, allow algo to try other direction.
+        left, right = (sub_cand, buffer[0]) if direction < 0 else (buffer[-1], sub_cand)
+        is_deadtime_excessive = (right.start.ordinal - left.end.ordinal) >= MAX_DEADTIME_MS
+        if is_deadtime_excessive: continue
 
+        # Determine whether overall duration excessive. If so, allow algo to try other direction.
+        first, last = (sub_cand, buffer[-1]) if direction < 0 else (buffer[0], sub_cand)
+        is_duration_excessive = (last.end.ordinal - first.start.ordinal) >= MAX_DURATION_MS
+        if is_duration_excessive: continue
+
+        # If we get here, the candidate passes all the tests to be added to the context buffer.
         buffer.appendleft(sub_cand) if direction < 0 else buffer.append(sub_cand)
 
     new_sub = glue_subs(i_main, list(buffer))
