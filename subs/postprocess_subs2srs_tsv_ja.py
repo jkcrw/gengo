@@ -73,8 +73,11 @@ for line in tsv:
             jam_table = build_jamdict_table(jam, word)
             if jam_table == '<table></table>': # See if we can do better by lemmatizing
                 lemmas = [w.feature.lemma for w in tagger(word) if w.feature.lemma]
-                lemma = lemmas[0]
-                jam_table = build_jamdict_table(jam, lemma)
+                try:
+                    lemma = lemmas[0]
+                    jam_table = build_jamdict_table(jam, lemma)
+                except IndexError:
+                    pass
 
             line[3] = line[3].replace(word, f'<span class="target">{word}</span>')
             line[3] = sanitize_around_word(line[3])

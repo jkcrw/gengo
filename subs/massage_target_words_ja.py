@@ -54,8 +54,11 @@ if __name__ == '__main__':
 
         if table == '<table></table>': # See if we can do better by lemmatizing
             lemmas = [w.feature.lemma for w in tagger(word) if w.feature.lemma]
-            lemma = lemmas[0]
-            table = build_jamdict_table(jam, lemma)
+            try:
+                lemma = lemmas[0]
+                table = build_jamdict_table(jam, lemma)
+            except IndexError:
+                pass
 
         tables.append(table)
 
