@@ -11,10 +11,10 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_ja'
-TITLE = 'World Trigger'
+TITLE = 'Gintama'
 root_orig = rf'C:\~\lang\ja\subs2srs\{TITLE}\\'
 # root_vtt = root_orig + 'subs_ja/vtt/'
-root_srt = root_orig + 'subs_ja/'
+root_srt = root_orig + 'subs_ja/srt/'
 
 # # ┌─────────────────────────────────────────────────────────────────────────────
 # # │ Convert

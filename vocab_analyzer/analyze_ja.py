@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'World Trigger'
-INPUT_FILE = rf'C:\~\lang\ja\_fulltexts\World Trigger.txt'
-CONTENT_TYPE = '99 eps'
+TITLE = 'Gintama'
+INPUT_FILE = rf'C:\~\lang\ja\_fulltexts\Gintama.txt'
+CONTENT_TYPE = '367 eps + 3 movies'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis

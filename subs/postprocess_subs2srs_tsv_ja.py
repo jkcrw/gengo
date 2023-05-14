@@ -10,8 +10,8 @@ from jamdict import Jamdict
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\lang\ja\subs2srs\World Trigger\target_words.txt'
-ANKI_TSV = r'C:\~\lang\ja\subs2srs\World Trigger\World_Trigger.tsv'
+TARGET_WORD_FILE = r'C:\~\lang\ja\subs2srs\Gintama\target_words.txt'
+ANKI_TSV = r'C:\~\lang\ja\subs2srs\Gintama\Gintama.tsv'
 OUTPUT_FILE = ANKI_TSV.replace('.tsv', '_tagged.tsv')
 jam = Jamdict()
 
