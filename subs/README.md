@@ -7,6 +7,11 @@
 6. `filter.py` to filter subtitle files against target words.
 7. `massage_target_words_ja.py` to figure out best jamdict output.
 8. `subs2srs.exe` to generate Anki TSV/clips.
+    - Subs1: C:\~\lang\ja\subs2srs\Gintama\subs_ja\filtered\Gintama_*_ja.srt
+    - Output: C:\~\lang\ja\subs2srs\Gintama
+    - Video: C:\~\lang\ja\subs2srs\Gintama\mp4\Gintama_*.mp4
+    - Generate Video Clips: 720x480
+    - Pad Timings: 1000ms / 1000ms
 9. `postprocess_subs2srs_tsv_ja.py` to post-process Anki TSV.
 10. Import into Anki.
 
