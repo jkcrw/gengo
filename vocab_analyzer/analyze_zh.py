@@ -13,7 +13,7 @@ from common_va import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Chinese Grammar Wiki 5'
+TITLE = 'Chinese Grammar Wiki 6'
 INPUT_FILE = r'C:\~\lang\_rosita\vocab_analyzer\temp_new.txt'
 CONTENT_TYPE = 'sentences'
 CHARSET = 's'  # t = traditional, s = simplified
