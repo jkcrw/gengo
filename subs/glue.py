@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root = r'C:\~\Languages\ES\SUBS2SRS\Tu Hijo'
-root_srt = root + '/subs/srt/'
-root_glued = root + '/subs/glued/'
-TARGET_DURATION_MS = 15000
+root = r'C:\~\lang\en\subs2srs\wednesday'
+root_srt = root + '/subs_ja/srt/'
+root_glued = root + '/subs_ja/glued/'
+TARGET_DURATION_MS = 1
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Glue SRT
@@ -20,6 +20,7 @@ TARGET_DURATION_MS = 15000
 def glue_subs(index: int, buffer: list[pysrt.SubRipItem]) -> pysrt.SubRipItem:
     start, end = buffer[0].start, buffer[-1].end
     text = ' '.join([sub.text_without_tags for sub in buffer])
+    text = text.replace('\n', '')
     glued = pysrt.SubRipItem(index, start, end, text)
     return glued
 
